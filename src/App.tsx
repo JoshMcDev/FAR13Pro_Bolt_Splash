@@ -20,7 +20,8 @@ import {
   CheckCircle,
   ArrowRight,
   Menu,
-  X
+  X,
+  BookOpenCheck
 } from 'lucide-react';
 
 function App() {
@@ -28,9 +29,9 @@ function App() {
 
   const modules = [
     {
-      title: "Requirements Studio",
+      title: "Requirements Refinement",
       icon: FileText,
-      description: "Refine requirements and create comprehensive work statements with AI-powered assistance.",
+      description: "Clarify requirements and create comprehensive work statements with AI-powered assistance.",
       features: [
         "Technical Specifications",
         "Statement of Objectives", 
@@ -57,7 +58,7 @@ function App() {
         "Acquisition Plan Generation",
         "Determinations & Findings", 
         "Risk Matrix Development",
-        "Milestone Scheduling"
+        "Deliverables and Scheduling"
       ]
     },
     {
@@ -88,7 +89,7 @@ function App() {
       description: "Complete contract generation and award processing with COR appointment automation.",
       features: [
         "Contract Generation",
-        "Payment Processing Setup",
+        "Payment Processing Instructions",
         "COR Appointment",
         "Award Notice Posting"
       ]
@@ -130,14 +131,14 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-950 text-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-sm border-b border-gray-700 z-50">
+      <nav className="fixed top-0 w-full bg-gray-900/90 backdrop-blur-sm border-b border-gray-700 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-teal-400 rounded-lg flex items-center justify-center">
-                <Building2 className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-teal-400 rounded-lg flex items-center justify-center">
+                <BookOpenCheck className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold">FAR 13 Pro</span>
             </div>
@@ -147,7 +148,7 @@ function App() {
               <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
               <a href="#capabilities" className="text-gray-300 hover:text-white transition-colors">Capabilities</a>
               <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
-              <button className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-400 transition-colors">
                 Sign In
               </button>
             </div>
@@ -166,7 +167,7 @@ function App() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-gray-800 border-t border-gray-700">
+          <div className="md:hidden bg-gray-850 border-t border-gray-700">
             <div className="px-4 py-3 space-y-3">
               <a href="#features" className="block text-gray-300 hover:text-white">Features</a>
               <a href="#capabilities" className="block text-gray-300 hover:text-white">Capabilities</a>
@@ -222,13 +223,12 @@ function App() {
       </section>
 
       {/* Features Grid */}
-      <section id="features" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
+      <section id="features" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-850/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Complete Procurement Suite</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Complete Acquisition Studio</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Seven integrated modules covering the entire acquisition lifecycle from requirements 
-              definition through contract award and analytics.
+              Seven integrated modules covering the entire procurment workflow from requirements definition through contract award and analytics.
             </p>
           </div>
 
@@ -238,7 +238,7 @@ function App() {
               return (
                 <div
                   key={index}
-                  className="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group"
+                  className="bg-gray-850 rounded-2xl p-8 border border-gray-700 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group"
                 >
                   <div className="mb-6">
                     <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-teal-400 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -279,7 +279,7 @@ function App() {
               const IconComponent = capability.icon;
               return (
                 <div key={index} className="text-center group">
-                  <div className="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-700 transition-colors">
+                  <div className="w-20 h-20 bg-gray-900 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-800 transition-colors">
                     <IconComponent className="w-10 h-10 text-teal-400" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{capability.title}</h3>
@@ -292,7 +292,7 @@ function App() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800/30">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -337,13 +337,13 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-700 py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="border-t border-gray-700 py-12 px-4 sm:px-6 lg:px-8 bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-teal-400 rounded-lg flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-white" />
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-teal-400 rounded-lg flex items-center justify-center">
+                  <BookOpenCheck className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-bold">FAR 13 Pro</span>
               </div>
