@@ -24,6 +24,7 @@ import {
   BookOpenCheck
 } from 'lucide-react';
 import CountUp from 'react-countup';
+import DecryptedText from './DecryptedText';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,7 +32,7 @@ function App() {
 
   const modules = [
     {
-      title: "Requirements Refinement",
+      title: "Requirements",
       icon: FileText,
       description: "Clarify requirements and create comprehensive work statements with AI-powered assistance.",
       features: [
@@ -46,7 +47,7 @@ function App() {
       icon: TrendingUp,
       description: "Deep market research and competitive analysis to inform your acquisition strategy.",
       features: [
-        "Market Research Reports",
+        "Market Research Report",
         "Historical Pricing Analysis",
         "Competitive Analysis",
         "Commercial Item Determination"
@@ -57,30 +58,30 @@ function App() {
       icon: Calendar,
       description: "Comprehensive acquisition planning with automated D&Fs and justifications.",
       features: [
-        "Acquisition Plan Generation",
+        "Acquisition Plan",
         "Determinations & Findings", 
-        "Risk Matrix Development",
-        "Logoistics & Sustainment Considerations"
+        "Justifications & Approvals",
+        "Risk Management Considerations"
       ]
     },
     {
       title: "Solicitation",
       icon: Mail,
-      description: "Generate professional RFQs and RFPs with automated SAM.gov integration.",
+      description: "Generate professional RFQs and RFPs with optional SAM.gov integration.",
       features: [
         "Vendor Outreach Management, Industry RFIs, & Sources Sought",
-        "Request for Quote Generation",
-        "Request for Proposal Generation",
-        "Recommend CLIN Structure, Provisions, & Clauses"
+        "Evaluation Criteria",
+        "RFQ/RFP Scaffolding",
+        "Recommended CLIN Structure, Provisions, & Clauses"
       ]
     },
     {
       title: "Evaluation",
       icon: Award,
-      description: "Streamlined vendor evaluation with automated scoring and compliance checks.",
+      description: "Streamlined offeror evaluation with automated review and compliance checks.",
       features: [
-        "Technical Review Automation",
-        "Pricing Analysis Tools",
+        "Abstract of Submissions",
+        "Pricing Analysis",
         "Past Performance Reviews",
         "Fair & Reasonable Determination"
       ]
@@ -90,7 +91,7 @@ function App() {
       icon: Trophy,
       description: "Complete contract generation and award processing with COR appointment automation.",
       features: [
-        "Contract Generation",
+        "Contract Scaffolding",
         "Clause Generator",
         "COR Appointments",
         "Unsuccessful Offeror Debriefings"
@@ -118,7 +119,7 @@ function App() {
     {
       icon: Globe,
       title: "SAM.gov Integration", 
-      description: "Direct API integration for automated posting and vendor verification"
+      description: "Direct API integration for optional automated posting and vendor verification"
     },
     {
       icon: Download,
@@ -213,10 +214,29 @@ function App() {
                 ))}
               </div>
             </div>
+            {/* FAR 13 Pro Glitch Title */}
+            <div className="mb-4">
+              <h1 className="rubik-glitch-regular text-5xl md:text-6xl text-red-600 text-center">FAR 13 Pro</h1>
+            </div>
             <div className="mb-8">
               <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                AI-powered procurement platform for simplified acquisitions. Streamline FAR 13 
-                commercial supplies and services procurement with intelligent automation.
+                AI-powered procurement file generation for simplified acquisitions.
+              </p>
+              <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mt-8">
+                Streamline commercial supply and service requirements with intelligent automation.
+              </p>
+              <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed mt-8">
+                <DecryptedText 
+                  text="Demystify and decrypt the process." 
+                  className="text-red-600" 
+                  encryptedClassName="text-red-600"
+                  animateOn="view" 
+                  revealDirection="start" 
+                  sequential={true}
+                  speed={105}
+                  maxIterations={25}
+                  pauseBetweenAnimations={1500}
+                />
               </p>
             </div>
             
@@ -242,7 +262,7 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Complete Acquisition Studio</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Seven integrated modules covering the entire procurment workflow from requirements definition through contract award and analytics.
+              Seven integrated modules covering procurment workflow from requirements definition through contract award and analytics.
             </p>
           </div>
 
@@ -316,10 +336,10 @@ function App() {
       <section id="capabilities" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">From Individual to Enterprise Capabilities</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">From Individual to Enterprise Scaling Capability</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Built for government contracting professionals with security, compliance, 
-              and integration at the core.
+              Built for government contracting professionals with <span className="text-red-600">efficiency</span>, <span className="text-red-600">compliance</span>, 
+              and <span className="text-red-600">integration</span> at the core.
             </p>
           </div>
 
@@ -345,7 +365,7 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-teal-400 mb-2">95%</div>
+              <div className="text-4xl font-bold text-teal-400 mb-2">91.7%</div>
               <div className="text-gray-300">Time Savings</div>
             </div>
             <div>
@@ -376,7 +396,7 @@ function App() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-2xl animate-pulse focus:ring-2 focus:ring-blue-400">
-              Start 30-Day Free Trial
+              Start Free Trial
             </button>
             <button className="bg-transparent border border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
               Schedule Demo
@@ -397,7 +417,7 @@ function App() {
                 <span className="text-xl font-bold">FAR 13 Pro</span>
               </div>
               <p className="text-gray-400 text-sm">
-                AI-powered procurement platform for simplified acquisitions under FAR 13.
+                AI-powered procurement studio for simplified acquisitions under FAR 13.
               </p>
             </div>
             
