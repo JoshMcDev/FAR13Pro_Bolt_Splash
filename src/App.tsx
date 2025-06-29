@@ -190,39 +190,27 @@ function App() {
             <div className="overflow-hidden w-full mb-8">
               <div className="flex items-center gap-12 animate-marquee whitespace-nowrap grayscale hover:grayscale-0 transition-all duration-300" style={{ minWidth: '200%' }}>
                 {/* Emblems, duplicated for seamless loop */}
-                <img src="/emblems/nasa.svg" alt="NASA" className="h-12 w-auto inline-block" />
-                <img src="/emblems/fbi.svg" alt="FBI" className="h-12 w-auto inline-block" />
-                <img src="/emblems/doj.svg" alt="DOJ" className="h-12 w-auto inline-block" />
-                <img src="/emblems/dod.svg" alt="DoD" className="h-12 w-auto inline-block" />
-                <img src="/emblems/dhs.svg" alt="DHS" className="h-12 w-auto inline-block" />
-                <img src="/emblems/doe.svg" alt="DOE" className="h-12 w-auto inline-block" />
-                <img src="/emblems/gsa.svg" alt="GSA" className="h-12 w-auto inline-block" />
-                <img src="/emblems/usda.svg" alt="USDA" className="h-12 w-auto inline-block" />
-                <img src="/emblems/hhs.svg" alt="HHS" className="h-12 w-auto inline-block" />
-                <img src="/emblems/treasury.svg" alt="Treasury" className="h-12 w-auto inline-block" />
-                <img src="/emblems/epa.svg" alt="EPA" className="h-12 w-auto inline-block" />
-                <img src="/emblems/usaid.svg" alt="USAID" className="h-12 w-auto inline-block" />
-                <img src="/emblems/commerce.svg" alt="Commerce" className="h-12 w-auto inline-block" />
-                <img src="/emblems/labor.svg" alt="Labor" className="h-12 w-auto inline-block" />
-                <img src="/emblems/va.svg" alt="VA" className="h-12 w-auto inline-block" />
-                <img src="/emblems/state.svg" alt="State" className="h-12 w-auto inline-block" />
-                {/* Repeat for seamless loop */}
-                <img src="/emblems/nasa.svg" alt="NASA" className="h-12 w-auto inline-block" />
-                <img src="/emblems/fbi.svg" alt="FBI" className="h-12 w-auto inline-block" />
-                <img src="/emblems/doj.svg" alt="DOJ" className="h-12 w-auto inline-block" />
-                <img src="/emblems/dod.svg" alt="DoD" className="h-12 w-auto inline-block" />
-                <img src="/emblems/dhs.svg" alt="DHS" className="h-12 w-auto inline-block" />
-                <img src="/emblems/doe.svg" alt="DOE" className="h-12 w-auto inline-block" />
-                <img src="/emblems/gsa.svg" alt="GSA" className="h-12 w-auto inline-block" />
-                <img src="/emblems/usda.svg" alt="USDA" className="h-12 w-auto inline-block" />
-                <img src="/emblems/hhs.svg" alt="HHS" className="h-12 w-auto inline-block" />
-                <img src="/emblems/treasury.svg" alt="Treasury" className="h-12 w-auto inline-block" />
-                <img src="/emblems/epa.svg" alt="EPA" className="h-12 w-auto inline-block" />
-                <img src="/emblems/usaid.svg" alt="USAID" className="h-12 w-auto inline-block" />
-                <img src="/emblems/commerce.svg" alt="Commerce" className="h-12 w-auto inline-block" />
-                <img src="/emblems/labor.svg" alt="Labor" className="h-12 w-auto inline-block" />
-                <img src="/emblems/va.svg" alt="VA" className="h-12 w-auto inline-block" />
-                <img src="/emblems/state.svg" alt="State" className="h-12 w-auto inline-block" />
+                {[
+                  'AFARS', 'AGAR', 'AIDAR', 'CAR', 'DAFFARS', 'DARS', 'DEAR', 'DFARS', 'DIAR', 'DLAD', 'DOLAR', 'DOSAR', 'DTAR', 'EDAR', 'EPAAR', 'FEHBAR', 'GSAM', 'HHSAR', 'HSAR', 'HUDAR', 'IAAR', 'JAR', 'LIFAR', 'NFS', 'NMCARS', 'NRCAR', 'SOFARS', 'TAR', 'TRANSFARS', 'VAAR'
+                ].map((emblem) => (
+                  <img
+                    key={emblem + '-1'}
+                    src={`/emblems/${emblem}.png`}
+                    alt={emblem}
+                    className="h-12 w-auto inline-block"
+                  />
+                ))}
+                {/* Duplicate for seamless loop */}
+                {[
+                  'AFARS', 'AGAR', 'AIDAR', 'CAR', 'DAFFARS', 'DARS', 'DEAR', 'DFARS', 'DIAR', 'DLAD', 'DOLAR', 'DOSAR', 'DTAR', 'EDAR', 'EPAAR', 'FEHBAR', 'GSAM', 'HHSAR', 'HSAR', 'HUDAR', 'IAAR', 'JAR', 'LIFAR', 'NFS', 'NMCARS', 'NRCAR', 'SOFARS', 'TAR', 'TRANSFARS', 'VAAR'
+                ].map((emblem) => (
+                  <img
+                    key={emblem + '-2'}
+                    src={`/emblems/${emblem}.png`}
+                    alt={emblem}
+                    className="h-12 w-auto inline-block"
+                  />
+                ))}
               </div>
             </div>
             <div className="mb-8">
