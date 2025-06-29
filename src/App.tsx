@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import CountUp from 'react-countup';
 import DecryptedText from './DecryptedText';
+import { InfiniteMovingCards } from './ui/InfiniteMovingCards';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -69,10 +70,10 @@ function App() {
       icon: Mail,
       description: "Generate professional RFQs and RFPs with optional SAM.gov integration.",
       features: [
-        "Vendor Outreach Management, Industry RFIs, & Sources Sought",
+        "Industry RFIs & Sources Sought Generation",
         "Evaluation Criteria",
         "RFQ/RFP Scaffolding",
-        "Recommended CLIN Structure, Provisions, & Clauses"
+        "CLIN Structure, Provisions, & Clauses"
       ]
     },
     {
@@ -244,9 +245,6 @@ function App() {
               <button className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-2xl animate-pulse focus:ring-2 focus:ring-blue-400">
                 Start Free Trial
               </button>
-              <button className="bg-transparent border border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
-                Watch Demo
-              </button>
             </div>
 
             <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-400">
@@ -266,60 +264,22 @@ function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {modules.map((module, index) => {
+          <InfiniteMovingCards
+            items={modules.map((module, index) => {
               const IconComponent = module.icon;
-              if (index === modules.length - 1) {
-                return (
-                  <div
-                    key={index}
-                    className="bg-gray-850 rounded-2xl p-8 border border-gray-700 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-2 shadow-2xl hover:shadow-3xl group relative overflow-hidden before:absolute before:inset-0 before:rounded-2xl before:border-2 before:border-transparent before:hover:border-gradient-to-br before:hover:from-pink-500 before:hover:to-blue-500 before:pointer-events-none"
-                    data-aos="fade-up"
-                  >
-                    <div className="mb-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-teal-400 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300">
-                        <IconComponent className="w-8 h-8 text-white" />
-                      </div>
-                      <h3 className="text-xl font-semibold mb-3">{module.title}</h3>
-                      <p className="text-gray-400 leading-relaxed">{module.description}</p>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-2 text-sm text-gray-300">
-                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                        <span>Spend Analytics</span>
-                      </div>
-                      <div className="flex items-center space-x-2 text-sm text-gray-300">
-                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                        <span>Performance Dashboard</span>
-                      </div>
-                      <div className="flex items-center space-x-2 text-sm text-gray-300">
-                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                        <span>Compliance Reporting</span>
-                      </div>
-                      <div className="flex items-center space-x-2 text-sm text-gray-300">
-                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                        <span>Trend Analysis</span>
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
               return (
                 <div
                   key={index}
-                  className="bg-gray-850 rounded-2xl p-8 border border-gray-700 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-2 shadow-2xl hover:shadow-3xl group relative overflow-hidden before:absolute before:inset-0 before:rounded-2xl before:border-2 before:border-transparent before:hover:border-gradient-to-br before:hover:from-pink-500 before:hover:to-blue-500 before:pointer-events-none"
-                  data-aos="fade-up"
+                  className="bg-gray-850 rounded-2xl p-8 border border-gray-700 w-96 h-[400px] mx-4 flex flex-col justify-between items-center shadow-lg hover:border-teal-400/50 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-teal-400 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300">
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3">{module.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{module.description}</p>
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-teal-400 rounded-xl flex items-center justify-center mb-4">
+                    <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <div className="space-y-2">
-                    {module.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center space-x-2 text-sm text-gray-300">
+                  <h3 className="text-xl font-semibold mb-3 text-center break-words">{module.title}</h3>
+                  <p className="text-gray-400 leading-relaxed text-center break-words whitespace-pre-line text-wrap">{module.description}</p>
+                  <div className="mt-4 flex flex-col gap-2 w-full">
+                    {module.features && module.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center gap-2 text-sm text-gray-300">
                         <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
                         <span>{feature}</span>
                       </div>
@@ -328,8 +288,20 @@ function App() {
                 </div>
               );
             })}
-          </div>
+            direction="left"
+            speed="fast"
+          />
         </div>
+      </section>
+
+      {/* Dashboard Demo Section */}
+      <section className="flex justify-center items-center h-[70vh] bg-[#0B0B0F] w-full">
+        <img
+          src="/macbook.png"
+          alt="Dashboard demo"
+          className="max-w-full h-auto"
+          style={{ maxWidth: '800px', maxHeight: '70vh' }}
+        />
       </section>
 
       {/* Capabilities Section */}
@@ -388,7 +360,7 @@ function App() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Procurement Process?
+            Ready to Accelerate Your Procurement Process?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
             Join hundreds of contracting professionals who have streamlined their 
@@ -397,9 +369,6 @@ function App() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-2xl animate-pulse focus:ring-2 focus:ring-blue-400">
               Start Free Trial
-            </button>
-            <button className="bg-transparent border border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
-              Schedule Demo
             </button>
           </div>
         </div>
