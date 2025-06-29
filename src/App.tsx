@@ -26,6 +26,8 @@ import {
 import CountUp from 'react-countup';
 import DecryptedText from './DecryptedText';
 import { InfiniteMovingCards } from './ui/InfiniteMovingCards';
+import Hyperspeed from './ui/Hyperspeed';
+import { hyperspeedPresets } from './ui/hyperspeed-presets';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -234,9 +236,10 @@ function App() {
                   animateOn="view" 
                   revealDirection="start" 
                   sequential={true}
-                  speed={105}
+                  speed={60}
                   maxIterations={25}
                   pauseBetweenAnimations={1500}
+                  characters="abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=,.?"
                 />
               </p>
             </div>
@@ -357,10 +360,13 @@ function App() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-24 min-h-[36vh] px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center">
+          <Hyperspeed effectOptions={hyperspeedPresets.four} />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Accelerate Your Procurement Process?
+            Ready to Accelerate Your Procurement?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
             Join hundreds of contracting professionals who have streamlined their 
