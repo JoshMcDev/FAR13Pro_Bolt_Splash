@@ -571,7 +571,7 @@ class CarLights {
       ),
     });
 
-    material.onBeforeCompile = (shader) => {
+    material.onBeforeCompile = (shader: any) => {
       shader.vertexShader = shader.vertexShader.replace(
         "#include <getDistortion_vertex>",
         typeof this.options.distortion === "object"
@@ -716,7 +716,7 @@ class LightsSticks {
       ),
     });
 
-    material.onBeforeCompile = (shader) => {
+    material.onBeforeCompile = (shader: any) => {
       shader.vertexShader = shader.vertexShader.replace(
         "#include <getDistortion_vertex>",
         typeof this.options.distortion === "object"
@@ -858,7 +858,7 @@ class Road {
       ),
     });
 
-    material.onBeforeCompile = (shader) => {
+    material.onBeforeCompile = (shader: any) => {
       shader.vertexShader = shader.vertexShader.replace(
         "#include <getDistortion_vertex>",
         typeof this.options.distortion === "object"
@@ -1266,6 +1266,11 @@ const Hyperspeed: FC<HyperspeedProps> = ({ effectOptions = {} }) => {
 
     const myApp = new App(container, mergedOptions);
     myApp.loadAssets().then(myApp.init);
+
+    // Force a resize event after a short delay to ensure correct sizing
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 100);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
