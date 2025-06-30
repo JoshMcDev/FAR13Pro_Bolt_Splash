@@ -28,6 +28,7 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
     const pxPerSec = speedMap[speed] * (direction === 'left' ? 1 : -1);
 
     function step(timestamp: number) {
+      if (!container) return;
       if (!start) start = timestamp;
       const elapsed = timestamp - start;
       scrollAmount = (elapsed / 1000) * pxPerSec;
@@ -55,7 +56,7 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
       style={{ scrollBehavior: 'auto' }}
     >
       {allItems.map((item, idx) => (
-        <div key={idx} className="inline-block mx-4">
+        <div key={idx} className="inline-block mx-4 w-80 h-[420px] align-top">
           {item}
         </div>
       ))}
